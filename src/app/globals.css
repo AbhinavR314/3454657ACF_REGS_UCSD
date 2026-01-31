@@ -1,0 +1,290 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-end-rgb));
+}
+
+
+/* this will ensure table rows that are being hovered will be highlighted */
+.row-hover:hover {
+  background-color: #e3e3e3;
+}
+
+@media (min-width: 768px) {
+
+  /* making the buzzpoint data a scrollable box */
+  .buzzes {
+    overflow-y: auto;
+    max-height: 70vh;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+.buzzpoint-word {
+  background-color: #5895e0;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+rt {
+  font-size: 0.9rem;
+  font-family: serif;
+  color: #424242;
+}
+
+rt .superpower {
+  color: #318fce;
+}
+
+rt .power {
+  color: #1d9060;
+}
+
+rt .get {
+  color: #1e9d24;
+}
+
+rt .neg {
+  color: #b33434;
+}
+
+rt .dnc {
+  color: #656565;
+}
+
+rt .value {
+  padding: 0px 5px;
+}
+
+table.sortableTable tbody tr.superpower {
+  background-color: #2879af;
+  color: #ffffff;
+}
+
+table.sortableTable tbody tr.power {
+  background-color: #1b8872;
+  color: #ffffff;
+}
+
+table.sortableTable tbody tr.get {
+  background-color: #1a8a20;
+  color: #ffffff;
+}
+
+table.sortableTable tbody tr.neg {
+  background-color: #8d2929;
+  color: #ffffff;
+}
+
+table.sortableTable tbody tr.zero {
+  background-color: #e97777cc;
+  color: #000000
+}
+
+table.sortableTable tbody tr.ten {
+  background-color: #ca8c63;
+  color: #000000
+}
+
+table.sortableTable tbody tr.twenty {
+  background-color: #cabc63;
+  color: #000000
+}
+
+table.sortableTable tbody tr.thirty {
+  background-color: #58a35c;
+  color: #000000
+}
+
+ruby {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  vertical-align: bottom;
+  align-items: center;
+}
+
+rt {
+  display: inline;
+  line-height: 1.5;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000
+}
+
+.table th {
+  padding: 8px 10px;
+  border-bottom: 1px solid #1a1a1a;
+  font-weight: bold;
+  text-align: left;
+}
+
+.table td {
+  padding: 8px 10px;
+}
+
+table.sortableTable th.up,
+table.sortableTable th.default,
+table.sortableTable th.down {
+  cursor: pointer;
+  position: relative;
+  padding-right: 26px;
+}
+
+table.sortableTable th.default:after,
+table.sortableTable th.default:before,
+table.sortableTable th.up:after,
+table.sortableTable th.up:before,
+table.sortableTable th.down:after,
+table.sortableTable th.down:before {
+  position: absolute;
+  display: block;
+  opacity: .125;
+  right: 10px;
+  line-height: 9px;
+  font-size: .8em
+}
+
+table.sortableTable th.default:before,
+table.sortableTable th.up:before,
+table.sortableTable th.down:before {
+  bottom: 50%;
+  content: "▲";
+  content: "▲" /""
+}
+
+table.sortableTable th.default:after,
+table.sortableTable th.up:after,
+table.sortableTable th.down:after {
+  top: 50%;
+  content: "▼";
+  content: "▼" /"";
+}
+
+table.sortableTable th.up:before,
+table.sortableTable th.down:after {
+  opacity: .6
+}
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.highlighted-word {
+  box-shadow: 5px 5px 10px #b3b3b3;
+  transition: all 200ms ease-out;
+  border-radius: 3px;
+}
+
+table tbody tr.highlighted-row.dnc {
+  background-color: #e3e3e3;
+  transition: all 200ms ease-out;
+}
+
+table tbody tr.highlighted-row.superpower,
+table tbody tr.highlighted-row.power,
+table tbody tr.highlighted-row.get,
+table tbody tr.highlighted-row.neg {
+  filter: brightness(90%);
+  transition: all 200ms ease-out;
+}
+
+.pronunciation-guide {
+  color: rgb(119, 119, 119)
+}
+
+.compact {
+  font-size: .8rem;
+  line-height: 1.1rem;
+}
+
+.chart-hover-word {
+  background-color: lightgray;
+  border-radius: 2px;
+}
+
+.average-buzz-line {
+  border-left: dashed;
+  color: #ffb12b;
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+}
+
+rt {
+  z-index: 1000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+
+  /* this will ensure table rows that are being hovered will be highlighted */
+  .row-hover:hover {
+    background-color: #303030;
+  }
+
+  table tbody tr.highlighted-row.dnc {
+    background-color: #303030;
+    transition: all 200ms ease-out;
+  }
+
+  .buzzpoint-word {
+    background-color: #5895e0;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 1px 5px;
+  }
+
+  rt {
+    font-size: 0.9rem;
+    font-family: serif;
+  }
+
+  .table th {
+    padding: 8px 10px;
+    border-bottom: 1px solid #f3f3f3;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .tooltip {
+    text-decoration: underline dotted;
+    text-underline-offset: .35em;
+  }
+
+  table.sortableTable tbody tr.dnc {
+    background-color: #424242;
+  }
+
+  rt .dnc {
+    color: #c4c4c4;
+  }
+
+  table tbody tr.highlighted-row.current {
+    background-color: #303030;
+    transition: all 200ms ease-out;
+  }
+
+  .chart-hover-word {
+    background-color: rgb(87, 87, 87);
+    border-radius: 2px;
+  }
+}
